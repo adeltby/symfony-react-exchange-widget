@@ -19,8 +19,7 @@ export default function ExchangeRate() {
 
   // refresh button
   const refresh = () => {
-    //setLoad(true);
-
+    setLoad(true);
     getRates();
   };
 
