@@ -13,12 +13,11 @@ class ExchangeController extends AbstractController
     #[Route('/api/exchange', name: 'app_exchange', methods: 'get')]
     public function exchange()
     {
-
-        $req_url = 'https://v6.exchangerate-api.com/v6/bd4108e87162f0fcd7df1bd4/latest/USD';
+        $req_url = 'https://v6.exchangerate-api.com/v6/cf0d85312e979ad2fc210a12/latest/USD';
 
         $response_json = file_get_contents($req_url);
 
-        if ($response_json) {
+        if ($response_json !== false) {
 
             try {
                 $response = json_decode($response_json);
@@ -37,7 +36,7 @@ class ExchangeController extends AbstractController
                 }
             } catch (Exception $e) {
 
-                return $this->json(['data' => $e]);
+                return $this->json(['data' => "free account limit!"]);
             }
         }
     }
